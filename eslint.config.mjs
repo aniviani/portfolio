@@ -21,5 +21,5 @@ export default defineConfig([
   },
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
-  prettier, // ⬅️ подключение Prettier в конце
+  prettier, 
 ]);

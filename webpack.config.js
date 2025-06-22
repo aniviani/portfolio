@@ -1,25 +1,35 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
-import pluginReact from 'eslint-plugin-react';
-import prettier from 'eslint-config-prettier';
-import { defineConfig } from 'eslint/config';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-export default defineConfig([
-  {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    plugins: {
-      js,
-    },
-    extends: ['js/recommended'],
+module.exports = {
+  entry: './src/index.tsx',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    clean: true,
   },
-  {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    languageOptions: {
-      globals: globals.browser,
-    },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
   },
-  tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
-  prettier, // ⬅️ подключение Prettier в конце
-]);
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    }),
+  ],
+  devServer: {
+    static: './dist',
+    hot: true,
+    open: true,
+    port: 3000,
+  },
+  mode: 'development',
+};
