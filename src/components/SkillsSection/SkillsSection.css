@@ -1,0 +1,19 @@
+.skills-section {
+  width: 1280px;
+  margin: auto;
+  background-color: #88520a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skills-wrapper {
+width: 1080px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  align-items: stretch;
+  gap: 40px;
+  width: 100%;
+  flex-wrap: wrap;
+}
