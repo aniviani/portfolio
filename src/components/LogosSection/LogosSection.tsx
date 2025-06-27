@@ -3,14 +3,14 @@ import './LogosSection.css';
 
 const LogosSection: React.FC = () => {
   return (
-<header>
-    <div className='LogosSection'>
-        <div className='Logos'>
-            <p> тут будут логотипы</p>
+    <header>
+      <div className="logos-sections">
+        <div className="logos">
+          <p> тут будут логотипы</p>
         </div>
-    </div>
-</header>
+      </div>
+    </header>
   );
-    };
+};
 
 export default LogosSection;

@@ -1,69 +1,69 @@
-.hero-section{
-max-width: 1280px;  
-width: 100%;
-margin: 0 auto;
-height: 624px;
-gap: 10px;
-display: flex;
-justify-content: center; 
-align-items: center;  
-background-color: rgb(206, 162, 103);
+.hero-section {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  height: 624px;
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(206, 162, 103);
 }
 
-.hero-content-wrapper{
-width: 1080px;  
-height: 424px;
-margin-top: 100px;
-margin-bottom: 100px;
-margin-left: 100px;
-margin-right: 100px;
-display: flex;
-justify-content: center; 
-align-items: center;  
-background-color: rgb(103, 128, 54);
-gap: 28px;
+.hero-content-wrapper {
+  width: 1080px;
+  height: 424px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(103, 128, 54);
+  gap: 28px;
 }
 
 .hero-text {
-width: 557px;
-height: 317px;
-right: 0px;
-margin-top: 53.5px;
-margin-bottom: 53.5px;
-margin-right: 28px;
-background-color: rgb(155, 4, 4);
+  width: 557px;
+  height: 317px;
+  right: 0;
+  margin-top: 54px;
+  margin-bottom: 54px;
+  margin-right: 28px;
+  background-color: rgb(155, 4, 4);
 }
 
-.tagline{
-height: 30px;
-font-size: 20px;
-font-weight: 600;
-line-height: 30px;
-letter-spacing: 0%;
-vertical-align: middle;
+.tagline {
+  height: 30px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: 0;
+  vertical-align: middle;
 }
 
-.main-title{
-height: 180px;
-font-size: 80px;
-line-height: 90px;
-letter-spacing: 0%;
-vertical-align: middle;
+.main-title {
+  height: 180px;
+  font-size: 80px;
+  line-height: 90px;
+  letter-spacing: 0;
+  vertical-align: middle;
 }
 
-.subtext{
-height: 27px;
-font-size: 17px;
-font-weight: 400;
-line-height: 27px;
-letter-spacing: 0;
+.subtext {
+  height: 27px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0;
 }
 
 .pages {
-width: 495px;
-height: 424px;
-gap: 40px;
-background-color: red;
+  width: 495px;
+  height: 424px;
+  gap: 40px;
+  background-color: red;
 }
 
 .hero-img {

@@ -3,7 +3,6 @@ import './SkillsSection.css';
 import SkillCard from '../SkillCard/SkillCard';
 import img from '../../img/abstract.jpg';
 
-
 const SkillsSection: React.FC = () => {
   return (
     <section className="skills-section">

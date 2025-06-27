@@ -1,4 +1,3 @@
-// eslint.config.mjs
 import eslintPluginPrettier from 'eslint-plugin-prettier';
 import prettierConfig from './.prettierrc' assert { type: 'json' };
 

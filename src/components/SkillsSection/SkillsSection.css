@@ -8,7 +8,7 @@
 }
 
 .skills-wrapper {
-width: 1080px;
+  width: 1080px;
   display: flex;
   justify-content: center;
   margin: auto;
