@@ -1,8 +1,8 @@
-.skill-card {
-  width: 250px;
-  height: 328px;
-  margin-top: 180px;
-  margin-bottom: 180px;
+.work-card {
+  width: 315px;
+  height: 407px;
+  margin-top: 10px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,22 +16,21 @@
   border-right: 3px solid #2e3027;
 }
 
-.skill-image {
-  width: 130px;
-  height: 130px;
-  object-fit: contain;
+.work-image {
+  width: 309px;
+  height: 315px;
 }
 
-.skill-title {
+.work-title {
   font-size: 18px;
   font-weight: 600;
-  color: #7f2626;
+  color: #4f5b2e;
   margin: 0;
 }
 
-.skill-description {
+.work-description {
   font-size: 14px;
-  color: #655959;
+  color: #777;
   line-height: 1.4;
   margin: 0;
 }

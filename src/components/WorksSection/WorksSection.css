@@ -1,13 +1,24 @@
-.skills-section {
+.works-section {
   width: 1280px;
   margin: auto;
   background-color: #6b705c;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.skills-wrapper {
+.works-title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 42px;
+  letter-spacing: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2e3027;
+}
+
+.works-wrapper {
   width: 1080px;
   display: flex;
   justify-content: center;

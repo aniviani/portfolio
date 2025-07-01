@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(206, 162, 103);
+  background-color: #6b705c;
 }
 
 .hero-content-wrapper {
@@ -20,7 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(103, 128, 54);
+  background-color: #6b705c;
   gap: 28px;
 }
 
@@ -31,7 +31,12 @@
   margin-top: 54px;
   margin-bottom: 54px;
   margin-right: 28px;
-  background-color: rgb(155, 4, 4);
+  background-color: #c0c6ad;
+  border-bottom: 3px solid #2e3027;
+  border-top: 3px solid #2e3027;
+  border-left: 3px solid #2e3027;
+  border-right: 3px solid #2e3027;
+  color: #2e3027;
 }
 
 .tagline {
@@ -41,12 +46,13 @@
   line-height: 30px;
   letter-spacing: 0;
   vertical-align: middle;
+  color: #2e3027;
 }
 
 .main-title {
-  height: 180px;
-  font-size: 80px;
-  line-height: 90px;
+  height: 120px;
+  font-size: 60px;
+  line-height: 80px;
   letter-spacing: 0;
   vertical-align: middle;
 }
@@ -57,16 +63,20 @@
   font-weight: 400;
   line-height: 27px;
   letter-spacing: 0;
+  color: #2e3027;
 }
 
 .pages {
   width: 495px;
   height: 424px;
   gap: 40px;
-  background-color: red;
 }
 
 .hero-img {
   width: 495px;
   height: 424px;
+  border-bottom: 3px solid #2e3027;
+  border-top: 3px solid #2e3027;
+  border-left: 3px solid #2e3027;
+  border-right: 3px solid #2e3027;
 }

@@ -6,19 +6,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(180, 61, 18);
+  background-color: #6b705c;
 }
 
 .logos {
   width: 1080px;
   height: 167px;
-  border-top: 2px solid #000;
-  border-bottom: 2px;
+  border-top: 2px solid #463737;
+  border-bottom: 2px solid #463737;
   display: flex;
   justify-content: center;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgb(187, 124, 13);
+  gap: 40px;
+  flex-wrap: wrap;
+  background-color: #c0c6ad;
 }
 
 .logos p {

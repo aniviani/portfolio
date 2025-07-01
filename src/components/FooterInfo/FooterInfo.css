@@ -1,0 +1,42 @@
+.info-contact {
+  width: 360px;
+  height: 313px;
+  margin-right: 190px;
+  background-color: #7e8960;
+  border-bottom: 3px solid #2e3027;
+  border-top: 3px solid #2e3027;
+  border-left: 3px solid #2e3027;
+  border-right: 3px solid #2e3027;
+}
+
+.info-image {
+  width: 36px;
+  height: 36px;
+  margin-top: 30px;
+  margin-right: 16px;
+  margin-left: 16px;
+  margin-bottom: 0px;
+}
+
+.info-image:hover {
+  transform: scale(1.25);
+}
+
+.info-title {
+  width: 360px;
+  height: 42px;
+  margin-top: 10;
+  margin-left: 4px;
+  margin-bottom: 25px;
+  color: #2e3027;
+}
+
+.info-description {
+  width: 360px;
+  height: 135px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 25px;
+  margin-left: 4px;
+  color: #2e3027;
+}

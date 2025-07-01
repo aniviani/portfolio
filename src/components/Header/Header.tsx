@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import abstractImg from '../../img/abstract.jpg';
+import img from '../../img/abstract.jpg';
 
 const Header: React.FC = () => {
   return (
@@ -8,20 +8,17 @@ const Header: React.FC = () => {
       <div className="hero-section">
         <div className="hero-content-wrapper">
           <div className="hero-text">
-            <p className="tagline">Branding | Image making</p>
-            <h1 className="main-title">
-              My awesome
-              <br />
-              portfolio
-            </h1>
+            <p className="tagline">Фронтенд | React | Адаптивный дизайн</p>
+            <h1 className="main-title">Мое портфолио</h1>
             <p className="subtext">
-              And I made it myself! Yes. In Figma with Anima
+              Создаю понятные и стабильные пользовательские интерфейсы. Внимание
+              к деталям, адаптивность, масштабируемость.
             </p>
           </div>
 
           <div className="pages">
             <img
-              src={abstractImg}
+              src={img}
               alt="Decorative abstract design"
               className="hero-img"
             />

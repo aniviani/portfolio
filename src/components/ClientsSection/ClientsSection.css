@@ -1,0 +1,34 @@
+.clients-section {
+  width: 1280px;
+  height: 676px;
+  margin: auto;
+  background-color: #6b705c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.clients-wrapper {
+  width: 1080px;
+  height: 426px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: stretch;
+  gap: 40px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.clients-title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 42px;
+  letter-spacing: 0;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+  color: #2e3027;
+}

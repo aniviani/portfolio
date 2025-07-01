@@ -9,18 +9,18 @@ const SkillsSection: React.FC = () => {
       <div className="skills-wrapper">
         <SkillCard
           image={img}
-          title="Product design"
-          description="This is a template Figma file, turned into code using Anima."
+          title="React-разработка"
+          description="Создаю интерфейсы на основе компонентов с использованием React и TypeScript."
         />
         <SkillCard
           image={img}
-          title="Art direction"
-          description="This is a template Figma file, turned into code using Anima."
+          title="Адаптивный дизайн"
+          description="Превращаю макеты в живые, отзывчивые интерфейсы. Использую Flexbox и CSS Grid, медиа-запросы. Гарантирую корректное отображение на экранах любого размера."
         />
         <SkillCard
           image={img}
-          title="Visual design"
-          description="This is a template Figma file, turned into code using Anima."
+          title="Работа в команде"
+          description="Уверенно использую Git, работаю с ветками и pull request. Понимаю основы командной разработки, пишу структурированный код и легко адаптируюсь к чужому проекту."
         />
       </div>
     </section>

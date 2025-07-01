@@ -1,10 +1,11 @@
 import Navigation from '../Navigation/Navigation';
 import React, { FC, useEffect } from 'react';
-import './App.css';
 import Header from '../Header/Header';
 import LogosSection from '../LogosSection/LogosSection';
 import SkillsSection from '../SkillsSection/SkillsSection';
-
+import WorksSection from '../WorksSection/WorksSection';
+import ClientsSection from '../ClientsSection/ClientsSection';
+import Footer from '../Footer/Footer';
 
 export const App: FC = () => {
   return (
@@ -15,6 +16,9 @@ export const App: FC = () => {
           <Header />
           <LogosSection />
           <SkillsSection />
+          <WorksSection />
+          <ClientsSection />
+          <Footer />
         </div>
       </header>
     </React.Fragment>

@@ -1,0 +1,21 @@
+.logo-card {
+  width: 250px;
+  height: 328px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.logo-image {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+}
+
+.logo-image:hover {
+  transform: scale(1.25);
+}
