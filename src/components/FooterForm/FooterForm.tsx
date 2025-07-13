@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import './FooterForm.css';
 
-const FooterForm = () => {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
+interface IFooterForm {
+  name: string;
+  email: string;
+  message: string;
+}
+
+const FooterForm: React.FC = () => {
+  const [form, setForm] = useState<IFooterForm>({ name: '', email: '', message: '' });
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,

@@ -1,21 +1,69 @@
 .logo-card {
-  width: 250px;
-  height: 328px;
+  width: 100%;
+  max-width: 15.625rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 20px;
-  padding: 20px;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 1.25rem;
   box-sizing: border-box;
+
+  animation: fadeInZoom 0.6s ease-out forwards;
+  opacity: 0;
 }
 
 .logo-image {
-  width: 130px;
-  height: 130px;
+  width: clamp(5rem, 6vw, 8.125rem);
+  height: clamp(5rem, 6vw, 8.125rem);
   object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
 .logo-image:hover {
   transform: scale(1.25);
+}
+
+.logo-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.logo-card:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.logo-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@media (max-width: 768px) {
+  .logo-card {
+    max-width: 9.375rem;
+    padding: 1rem;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 468px) {
+  .logo-card {
+    width: 100%;
+    max-width: 6.25rem;
+    padding: 0.75rem;
+    gap: 1rem;
+  }
+
+  .logo-image {
+    width: 4.125rem;
+    height: 4.125rem;
+  }
+}
+
+@keyframes fadeInZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

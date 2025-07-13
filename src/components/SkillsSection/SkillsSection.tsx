@@ -5,7 +5,7 @@ import img from '../../img/abstract.jpg';
 
 const SkillsSection: React.FC = () => {
   return (
-    <section className="skills-section">
+    <section id="about" className="skills-section">
       <div className="skills-wrapper">
         <SkillCard
           image={img}

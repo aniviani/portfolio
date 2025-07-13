@@ -1,13 +1,13 @@
 import React from 'react';
 import './WorkCard.css';
 
-interface WorkCardProps {
+interface IWorkCardProps {
   image: string;
   title: string;
   description: string;
 }
 
-const WorkCard: React.FC<WorkCardProps> = ({ image, title, description }) => {
+const WorkCard: React.FC<IWorkCardProps> = ({ image, title, description }) => {
   return (
     <div className="work-card">
       <img src={image} alt={title} className="work-image" />

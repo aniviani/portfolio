@@ -5,7 +5,7 @@ import img from '../../img/abstract.jpg';
 
 const WorksSection: React.FC = () => {
   return (
-    <section className="works-section">
+    <section id="work" className="works-section">
       <div className="works-title">
         <p>Последние работы</p>
       </div>

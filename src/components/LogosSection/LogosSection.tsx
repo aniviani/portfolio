@@ -7,7 +7,7 @@ import img3 from '../../img/image-css.png';
 
 const LogosSection: React.FC = () => {
   return (
-    <header>
+    <section>
       <div className="logos-sections">
         <div className="logos">
           <LogoCard image={img1} alt="React logo" />
@@ -15,7 +15,7 @@ const LogosSection: React.FC = () => {
           <LogoCard image={img3} alt="CSS logo" />
         </div>
       </div>
-    </header>
+    </section>
   );
 };
 

@@ -6,12 +6,11 @@ import SkillsSection from '../SkillsSection/SkillsSection';
 import WorksSection from '../WorksSection/WorksSection';
 import ClientsSection from '../ClientsSection/ClientsSection';
 import Footer from '../Footer/Footer';
+import '../App/App.css'
 
-export const App: FC = () => {
+export const App: React.FC = () => {
   return (
     <React.Fragment>
-      <header className="header">
-        <div className="container">
           <Navigation />
           <Header />
           <LogosSection />
@@ -19,8 +18,6 @@ export const App: FC = () => {
           <WorksSection />
           <ClientsSection />
           <Footer />
-        </div>
-      </header>
     </React.Fragment>
   );
 };

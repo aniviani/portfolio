@@ -6,7 +6,7 @@ import FooterForm from '../FooterForm/FooterForm';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer-section">
+    <section id='contact' className="footer-section">
       <div className="info-footer">
         <FooterInfo
           title="Давайте работать вместе"
@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
         />
         <FooterForm />
       </div>
-    </footer>
+    </section>
   );
 };
 

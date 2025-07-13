@@ -1,13 +1,13 @@
 import React from 'react';
 import './SkillCard.css';
 
-interface SkillCardProps {
+interface ISkillCardProps {
   image: string;
   title: string;
   description: string;
 }
 
-const SkillCard: React.FC<SkillCardProps> = ({ image, title, description }) => {
+const SkillCard: React.FC<ISkillCardProps> = ({ image, title, description }) => {
   return (
     <div className="skill-card">
       <img src={image} alt={title} className="skill-image" />
