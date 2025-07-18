@@ -12,35 +12,36 @@ const ClientsSection: React.FC = () => {
   const trackRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [cardWidth, setCardWidth] = useState(320);
-  const [cardsPerSlide, setCardsPerSlide] = useState(2);
+  const [cardWidth, setCardWidth] = useState(0);
+  const [gap, setGap] = useState(32);
+  const [visibleCards, setVisibleCards] = useState(2);
 
   const recalc = useCallback(() => {
     if (!containerRef.current || !trackRef.current) return;
 
-    const viewport = containerRef.current.clientWidth;
-
     const firstCard =
       trackRef.current.querySelector<HTMLElement>('.client-card');
-    const width = firstCard ? firstCard.offsetWidth : 320;
+    if (!firstCard) return;
 
-    const perSlide = Math.max(1, Math.floor(viewport / width));
+    const cardStyle = window.getComputedStyle(firstCard);
+    const newCardWidth = firstCard.offsetWidth;
+    const newGap = parseInt(cardStyle.marginRight) || 32;
 
-    setCardWidth(width);
-    setCardsPerSlide(perSlide);
+    setCardWidth(newCardWidth);
+    setGap(newGap);
 
-    const max = Math.ceil(cardsData.length / perSlide) - 1;
-    setCurrentSlide((prev) => Math.min(prev, max));
+ const isMobile = window.matchMedia('(max-width: 468px)').matches;
+    setVisibleCards(isMobile ? 1 : 2);
   }, []);
 
   const updateTransform = useCallback(
     (index: number) => {
       if (trackRef.current) {
-        const offset = index * cardWidth * cardsPerSlide;
+        const offset = currentSlide * (cardWidth + gap);
         trackRef.current.style.transform = `translateX(-${offset}px)`;
       }
     },
-    [cardWidth, cardsPerSlide],
+    [currentSlide, cardWidth, gap],
   );
 
   useEffect(
@@ -50,17 +51,22 @@ const ClientsSection: React.FC = () => {
 
   useEffect(() => {
     recalc();
+      const handleResize = () => {
+      recalc();
+      // Сброс текущего слайда при изменении количества видимых карточек
+      setCurrentSlide(0);
+    };
     window.addEventListener('resize', recalc);
     return () => window.removeEventListener('resize', recalc);
   }, [recalc]);
 
-  const maxSlide = Math.ceil(cardsData.length / cardsPerSlide) - 1;
+  const maxSlide = cardsData.length - visibleCards;
 
   return (
     <section className="clients-section">
       <p className="clients-title">Отзывы клиентов</p>
 
-      <div className="carousel-wrapper">
+      <div className="carousel-wrapper" ref={containerRef}>
         <button
           className="carousel-button prev"
           onClick={() => setCurrentSlide((p) => Math.max(p - 1, 0))}
@@ -70,51 +76,14 @@ const ClientsSection: React.FC = () => {
         </button>
         <div className="carousel-container">
           <div className="carousel-track" ref={trackRef}>
-            <ClientCard
-              title="отзыв 1"
-              description="Gemma Nolen, Google"
-              rating={3}
-            />
-            <ClientCard
-              title="отзыв 2"
-              description="Gemma Nolen, Google"
-              rating={5}
-            />
-            <ClientCard
-              title="отзыв 3"
-              description="Gemma Nolen, Google"
-              rating={4}
-            />
-            <ClientCard
-              title="отзыв 4"
-              description="Gemma Nolen, Google"
-              rating={1}
-            />
-            <ClientCard
-              title="отзыв 5"
-              description="Gemma Nolen, Google"
-              rating={4}
-            />
-            <ClientCard
-              title="отзыв 6"
-              description="Gemma Nolen, Google"
-              rating={3}
-            />
-            <ClientCard
-              title="отзыв 7"
-              description="Gemma Nolen, Google"
-              rating={4}
-            />
-            <ClientCard
-              title="отзыв 8"
-              description="Gemma Nolen, Google"
-              rating={5}
-            />
-            <ClientCard
-              title="отзыв 9"
-              description="Gemma Nolen, Google"
-              rating={2}
-            />
+            {cardsData.map((card, index) => (
+              <ClientCard
+                key={index}
+                title={card.title}
+                description={card.description}
+                rating={card.rating}
+              />
+            ))}
           </div>
         </div>
         <button
