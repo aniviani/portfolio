@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navigation.css';
 
 const navItems = [
@@ -14,10 +14,11 @@ const Navigation: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setShowNav(false);
-      } else {
+      } else if (delta < -10) {
         setShowNav(true);
       }
 
@@ -27,7 +28,6 @@ const Navigation: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
-
 
   return (
     <header className={`nav-wrapper ${showNav ? 'show' : 'hide'}`}>

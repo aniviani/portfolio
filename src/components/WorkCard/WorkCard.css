@@ -14,8 +14,8 @@
 }
 
 .work-image {
-  width: 19.3rem;
-  height: 19.7rem;
+  width: 50%;
+  height: auto;
 }
 
 .work-title {
@@ -41,6 +41,8 @@
 @media (max-width: 768px) {
   .work-card {
     width: 45%;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 2rem;
   }
 
@@ -52,12 +54,14 @@
 
 @media (max-width: 468px) {
   .work-card {
-    width: 100%;
+    width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 1.5rem;
   }
 
   .work-image {
-    max-width: 100%;
-    height: auto;
+    width: 50%;
   }
 }

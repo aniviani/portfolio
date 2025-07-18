@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const isProd = process.env.NODE_ENV === 'production';
+
 module.exports = {
   entry: './src/index.tsx',
   module: {
@@ -26,6 +28,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+   publicPath: isProd ? '/portfolio/' : '/',
     clean: true,
   },
   plugins: [
@@ -33,5 +36,15 @@ module.exports = {
       template: './index.html',
     }),
   ],
-  mode: 'development',
+    devServer: {
+    static: {
+      directory: path.join(__dirname, './'),
+    },
+    compress: true,
+    port: 8080,
+    open: true,
+    historyApiFallback: true,
+  },
+  mode: isProd ? 'production' : 'development',
+
 };
