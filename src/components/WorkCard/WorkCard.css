@@ -1,5 +1,5 @@
 .work-card {
-  width: 19.75rem;
+  width: 25rem;
   margin-top: 0.625rem;
   margin-bottom: 3.125rem;
   display: flex;
@@ -25,11 +25,23 @@
   margin: 0;
 }
 
+.work-duration {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  font-weight: 400;
+  color: #4f5b2e;
+  margin: 0;
+}
+
 .work-description {
-  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
   color: #777;
   line-height: 1.4;
   margin: 0;
+}
+
+.work-description li {
+  margin-bottom: 0.3rem;
+  list-style-type: disc;
 }
 
 .work-card:hover {

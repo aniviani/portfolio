@@ -15,10 +15,18 @@ const FooterInfo: React.FC<IFooterInfoProps> = ({
   description,
   image,
 }) => {
+    const descriptionItems = description.split('\n').filter(item => item.trim());
+
   return (
     <div className="info-contact">
       <h3 className="info-title">{title}</h3>
-      <p className="info-description">{description}</p>
+      <div className="info-description">
+          {descriptionItems.map((item, index) => (
+          <div key={index} className="description-item">
+            {item.trim()}
+          </div>
+        ))}
+        </div>
       <div className="info-icons">
         <a href="mailto:aniviani@yandex.com">
           <img src={img1} alt={title} className="info-image" />

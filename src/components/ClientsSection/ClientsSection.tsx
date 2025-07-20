@@ -2,11 +2,33 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import './ClientsSection.css';
 import ClientCard from '../ClientCard/ClientCard';
 
-const cardsData = Array.from({ length: 9 }, (_, i) => ({
-  title: `отзыв ${i + 1}`,
-  description: 'Gemma Nolen, Google',
-  rating: (i % 5) + 1,
-}));
+const cardsData = [
+  {
+    title: "JavaScript / TypeScript",
+    description: "Работаю со строгой типизацией, уверенно использую современные возможности языка.",
+    rating: 5
+  },
+  {
+    title: "React / Redux",
+    description: "Проектирую интерфейсы, использую Redux для управления состоянием в сложных приложениях.",
+    rating: 4
+  },
+  {
+    title: "HTML / CSS / BEM / CSS-in-JS",
+    description: "Пишу адаптивную и поддерживаемую вёрстку. Опыт с CSS-модулями и styled-components.",
+    rating: 5
+  },
+  {
+    title: "MySQL / PostgreSQL",
+    description: "Работа с базами данных: структура, запросы, интеграция через API.",
+    rating: 4
+  },
+  {
+    title: "Git / DevOps (basic)",
+    description: "Работа в ветках, настройка CI/CD, линтинг и проверка кода на этапе сборки.",
+    rating: 5
+  }
+];
 
 const ClientsSection: React.FC = () => {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -16,22 +38,31 @@ const ClientsSection: React.FC = () => {
   const [gap, setGap] = useState(32);
   const [visibleCards, setVisibleCards] = useState(2);
 
+  
   const recalc = useCallback(() => {
-    if (!containerRef.current || !trackRef.current) return;
+    if (!trackRef.current || !containerRef.current) return;
 
-    const firstCard =
-      trackRef.current.querySelector<HTMLElement>('.client-card');
-    if (!firstCard) return;
+    const cards = trackRef.current.querySelectorAll<HTMLElement>('.client-card');
+    if (!cards.length) return;
 
-    const cardStyle = window.getComputedStyle(firstCard);
-    const newCardWidth = firstCard.offsetWidth;
-    const newGap = parseInt(cardStyle.marginRight) || 32;
+    const first = cards[0];
+    const cw = first.offsetWidth;
 
-    setCardWidth(newCardWidth);
-    setGap(newGap);
+    const style = window.getComputedStyle(trackRef.current);
+    let rawGap = style.columnGap || style.rowGap || style.gap || '0';
+    let g = parseFloat(rawGap);
 
- const isMobile = window.matchMedia('(max-width: 468px)').matches;
-    setVisibleCards(isMobile ? 1 : 2);
+    if (Number.isNaN(g) || g === 0) {
+      const second = cards[1];
+      g = second ? second.offsetLeft - first.offsetLeft - cw : 0;
+    }
+
+    const containerWidth = containerRef.current.offsetWidth;
+    const vis = Math.max(1, Math.floor(containerWidth / (cw + g)));
+
+    setCardWidth(cw);
+    setGap(g);
+    setVisibleCards(vis);
   }, []);
 
   const updateTransform = useCallback(
@@ -50,21 +81,21 @@ const ClientsSection: React.FC = () => {
   );
 
   useEffect(() => {
+  recalc();                       
+  const handleResize = () => {
     recalc();
-      const handleResize = () => {
-      recalc();
-      // Сброс текущего слайда при изменении количества видимых карточек
-      setCurrentSlide(0);
-    };
-    window.addEventListener('resize', recalc);
-    return () => window.removeEventListener('resize', recalc);
-  }, [recalc]);
+    setCurrentSlide(0);         
+  };
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+}, [recalc]);
 
-  const maxSlide = cardsData.length - visibleCards;
+
+  const maxSlide = Math.max(cardsData.length - visibleCards, 0);
 
   return (
     <section className="clients-section">
-      <p className="clients-title">Отзывы клиентов</p>
+      <p className="clients-title">Мои навыки</p>
 
       <div className="carousel-wrapper" ref={containerRef}>
         <button
@@ -99,3 +130,4 @@ const ClientsSection: React.FC = () => {
 };
 
 export default ClientsSection;
+

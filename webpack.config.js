@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isProd = process.env.NODE_ENV === 'production';
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -28,15 +29,20 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-   publicPath: isProd ? '/portfolio/' : '/',
+    publicPath: isProd ? '/portfolio/' : '/',
     clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
     }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'favicon_io', to: 'favicon_io' }, // Копирует всю папку
+      ],
+    }),
   ],
-    devServer: {
+  devServer: {
     static: {
       directory: path.join(__dirname, './'),
     },
@@ -46,5 +52,4 @@ module.exports = {
     historyApiFallback: true,
   },
   mode: isProd ? 'production' : 'development',
-
 };
