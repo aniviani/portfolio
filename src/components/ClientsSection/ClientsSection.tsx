@@ -4,30 +4,35 @@ import ClientCard from '../ClientCard/ClientCard';
 
 const cardsData = [
   {
-    title: "JavaScript / TypeScript",
-    description: "Работаю со строгой типизацией, уверенно использую современные возможности языка.",
-    rating: 5
+    title: 'JavaScript / TypeScript',
+    description:
+      'Работаю со строгой типизацией, уверенно использую современные возможности языка.',
+    rating: 5,
   },
   {
-    title: "React / Redux",
-    description: "Проектирую интерфейсы, использую Redux для управления состоянием в сложных приложениях.",
-    rating: 4
+    title: 'React / Redux',
+    description:
+      'Проектирую интерфейсы, использую Redux для управления состоянием в сложных приложениях.',
+    rating: 4,
   },
   {
-    title: "HTML / CSS / BEM / CSS-in-JS",
-    description: "Пишу адаптивную и поддерживаемую вёрстку. Опыт с CSS-модулями и styled-components.",
-    rating: 5
+    title: 'HTML / CSS / BEM / CSS-in-JS',
+    description:
+      'Пишу адаптивную и поддерживаемую вёрстку. Опыт с CSS-модулями и styled-components.',
+    rating: 5,
   },
   {
-    title: "MySQL / PostgreSQL",
-    description: "Работа с базами данных: структура, запросы, интеграция через API.",
-    rating: 4
+    title: 'MySQL / PostgreSQL',
+    description:
+      'Работа с базами данных: структура, запросы, интеграция через API.',
+    rating: 4,
   },
   {
-    title: "Git / DevOps (basic)",
-    description: "Работа в ветках, настройка CI/CD, линтинг и проверка кода на этапе сборки.",
-    rating: 5
-  }
+    title: 'Git / DevOps (basic)',
+    description:
+      'Работа в ветках, настройка CI/CD, линтинг и проверка кода на этапе сборки.',
+    rating: 5,
+  },
 ];
 
 const ClientsSection: React.FC = () => {
@@ -38,11 +43,11 @@ const ClientsSection: React.FC = () => {
   const [gap, setGap] = useState(32);
   const [visibleCards, setVisibleCards] = useState(2);
 
-  
   const recalc = useCallback(() => {
     if (!trackRef.current || !containerRef.current) return;
 
-    const cards = trackRef.current.querySelectorAll<HTMLElement>('.client-card');
+    const cards =
+      trackRef.current.querySelectorAll<HTMLElement>('.client-card');
     if (!cards.length) return;
 
     const first = cards[0];
@@ -81,20 +86,19 @@ const ClientsSection: React.FC = () => {
   );
 
   useEffect(() => {
-  recalc();                       
-  const handleResize = () => {
     recalc();
-    setCurrentSlide(0);         
-  };
-  window.addEventListener('resize', handleResize);
-  return () => window.removeEventListener('resize', handleResize);
-}, [recalc]);
-
+    const handleResize = () => {
+      recalc();
+      setCurrentSlide(0);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [recalc]);
 
   const maxSlide = Math.max(cardsData.length - visibleCards, 0);
 
   return (
-    <section className="clients-section">
+    <section id="skills" className="clients-section">
       <p className="clients-title">Мои навыки</p>
 
       <div className="carousel-wrapper" ref={containerRef}>
@@ -130,4 +134,3 @@ const ClientsSection: React.FC = () => {
 };
 
 export default ClientsSection;
-

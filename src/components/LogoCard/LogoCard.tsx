@@ -2,14 +2,14 @@ import React from 'react';
 import './LogoCard.css';
 
 interface ILogoCardProps {
-  image: string;
+  logo: React.ReactNode;
   alt: string;
 }
 
-const LogoCard: React.FC<ILogoCardProps> = ({ image, alt }) => {
+const LogoCard: React.FC<ILogoCardProps> = ({ logo, alt }) => {
   return (
-    <div className="logo-card">
-      <img src={image} alt={alt || 'logo'} className="logo-image" />
+    <div className="logo-card" aria-label={alt}>
+      {logo}
     </div>
   );
 };

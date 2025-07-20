@@ -9,6 +9,25 @@ module.exports = {
   module: {
     rules: [
       {
+     test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,       // только когда импортируют из TS/JS/TSX
+      use: [
+         {
+           loader: '@svgr/webpack',
+           options: { icon: true }, // автоматический viewBox→1em
+        },
+         // ↓ не обязательно, но удобно, если иногда нужно src-строку,
+         //    например background-image в CSS-модуле.
+         {
+           loader: 'url-loader',
+           options: {
+             limit: 8192,
+             name: 'assets/[name].[contenthash].[ext]',
+           },
+         },
+       ],
+     },
+      {
         test: /\.tsx$/,
         use: 'ts-loader',
         exclude: /node_modules/,

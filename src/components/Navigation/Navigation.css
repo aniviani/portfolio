@@ -15,11 +15,13 @@ body {
   justify-content: space-between;
   align-items: center;
   padding-inline: clamp(1rem, 5vw, 4.5rem);
+  position: relative;
 }
 
 .nav-logo {
   font-size: clamp(1.1rem, 1.8vw, 1.25rem);
   font-weight: 700;
+  color: #333;
 }
 
 .nav-links {
@@ -37,7 +39,7 @@ body {
 }
 
 .nav-links li a:hover {
-  color: #000;
+  color: #f0f0f0;
 }
 
 .nav-wrapper {
@@ -59,6 +61,99 @@ body {
   transform: translateY(0);
 }
 
+.burger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.burger-btn span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.burger-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.burger-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  height: 100vh;
+  background-color: rgba(63, 70, 42, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 1001;
+  transition: left 0.3s ease;
+  padding-top: clamp(4.3rem, 5vw, 5rem);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar-nav {
+  padding: 2rem 1.5rem;
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar-links li a {
+  text-decoration: none;
+  color: #333;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 500;
+  transition:
+    color 0.3s ease,
+    padding-left 0.3s ease;
+  display: block;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-links li a:hover {
+  color: #f0f0f0;
+  padding-left: 10px;
+}
 @media (max-width: 1024px) {
   .nav-logo {
     font-size: clamp(1rem, 1.6vw, 1.15rem);
@@ -80,11 +175,12 @@ body {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
   }
 
+  .burger-btn {
+    display: flex;
+  }
+
   .nav-links {
-    font-size: clamp(1rem, 1.5vw, 1.2rem);
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: none;
   }
 }
 
@@ -96,8 +192,7 @@ body {
     font-size: clamp(1rem, 1vw, 1.1rem);
   }
 
-  .nav-links {
-    font-size: clamp(0.9rem, 1vw, 1.05rem);
-    gap: 0.75rem;
+  .sidebar-links li a {
+    font-size: clamp(1rem, 2vw, 1.2rem);
   }
 }

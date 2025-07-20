@@ -33,9 +33,9 @@
 .carousel-container {
   overflow-x: hidden;
   overflow-y: visible;
-   width: calc(260px * 2 + 2rem); 
+  width: calc(260px * 2 + 2rem);
   max-width: 100%;
-  
+
   flex: 1;
 }
 
@@ -81,10 +81,10 @@
   .clients-section {
     padding: 1rem;
   }
-    .carousel-container {
+  .carousel-container {
     width: calc(260px + 1rem);
   }
-  
+
   .carousel-track {
     gap: 1rem;
   }
@@ -92,7 +92,7 @@
 
 @media (max-width: 468px) {
   .carousel-track {
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1rem;
   }
 
