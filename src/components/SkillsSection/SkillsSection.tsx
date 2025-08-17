@@ -1,24 +1,26 @@
 import React from 'react';
 import './SkillsSection.css';
 import SkillCard from '../SkillCard/SkillCard';
-import img from '../../img/abstract.jpg';
+import img1 from '../../img/react-ts.svg';
+import img2 from '../../img/ci-cd.svg';
+import img3 from '../../img/commercial.svg';
 
 const SkillsSection: React.FC = () => {
   return (
     <section id="about" className="skills-section">
       <div className="skills-wrapper">
         <SkillCard
-          image={img}
+          image={img1}
           title="Интерфейсы на React и TypeScript"
           description="Разрабатываю надёжные пользовательские интерфейсы на основе компонентов. Использую современные подходы к архитектуре и стилям: CSS-in-JS, BEM, модульные стили."
         />
         <SkillCard
-          image={img}
+          image={img2}
           title="Автоматизация и CI/CD"
           description="Внедряю пайплайны на GitHub Actions для автоматической сборки, тестирования и деплоя. Настраиваю контроль качества кода с помощью ESLint, Prettier и TypeScript."
         />
         <SkillCard
-          image={img}
+          image={img3}
           title="Опыт в коммерческой разработке"
           description="Более трёх лет занимаюсь разработкой интерфейсов для веб-приложений. Реализовывала адаптивные компоненты, проектировала UI-киты и сопровождала продукты на всех этапах жизненного цикла."
         />

@@ -10,14 +10,12 @@ module.exports = {
     rules: [
       {
      test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,       // только когда импортируют из TS/JS/TSX
+      issuer: /\.[jt]sx?$/,       
       use: [
          {
            loader: '@svgr/webpack',
-           options: { icon: true }, // автоматический viewBox→1em
+           options: { icon: true }, 
         },
-         // ↓ не обязательно, но удобно, если иногда нужно src-строку,
-         //    например background-image в CSS-модуле.
          {
            loader: 'url-loader',
            options: {
@@ -57,7 +55,7 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: 'favicon_io', to: 'favicon_io' }, // Копирует всю папку
+        { from: 'favicon_io', to: 'favicon_io' }, 
       ],
     }),
   ],

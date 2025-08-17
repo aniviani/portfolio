@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import img from '../../img/abstract.jpg';
+import img from '../../img/about-me.svg';
 
 const Header: React.FC = () => {
   return (
