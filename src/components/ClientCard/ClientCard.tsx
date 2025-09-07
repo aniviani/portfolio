@@ -15,16 +15,16 @@ const ClientCard: React.FC<IClientCardProps> = ({
   const getStarColor = (rating: number): string => {
     switch (rating) {
       case 1:
-        return '#e74c3c';
+        return '#b94a48'; 
       case 2:
-        return '#e67e22';
+        return '#d98c4c';   
       case 3:
-        return '#f1c40f';
+        return '#d9b84c'; 
       case 4:
-        return '#a3e635';
+        return '#a3c76d'; 
       case 5:
       default:
-        return '#00b67a';
+        return '#5a9f80';
     }
   };
 

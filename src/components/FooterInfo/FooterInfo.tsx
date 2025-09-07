@@ -7,13 +7,11 @@ import { ReactComponent as TgIcon } from '../../img/telegram.svg';
 interface IFooterInfoProps {
   title: string;
   description: string;
-  image: string;
 }
 
 const FooterInfo: React.FC<IFooterInfoProps> = ({
   title,
   description,
-  image,
 }) => {
   const descriptionItems = description
     .split('\n')

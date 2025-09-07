@@ -1,7 +1,6 @@
 import React from 'react';
 import './Footer.css';
 import FooterInfo from '../FooterInfo/FooterInfo';
-import img from '../../img/abstract.jpg';
 import FooterForm from '../FooterForm/FooterForm';
 
 const Footer: React.FC = () => {
@@ -11,7 +10,6 @@ const Footer: React.FC = () => {
         <FooterInfo
           title="Образование"
             description={`Тульский Государственный Университет — Бакалавр компьютерных наук.\n\n Финальный проект: ПО для генерации реалистичных текстов на основе ИИ\n\nGPA: ~3.8 / 4`}
-          image={img}
         />
         <FooterForm />
       </div>

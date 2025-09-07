@@ -35,9 +35,9 @@
 }
 
 .main-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: clamp(3.125rem, 5vw, 5rem);
-
+  
   animation: fadeInUp 0.6s ease-out forwards;
   animation-delay: 0.3s;
   opacity: 0;
