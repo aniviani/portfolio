@@ -1,17 +1,20 @@
 import React from 'react';
 import './Header.css';
-import img from '../../img/abstract.jpg';
+import img from '../../img/about-me.svg';
 
 const Header: React.FC = () => {
   return (
     <header>
       <div className="hero-section">
         <div className="hero-text">
-          <p className="tagline">Фронтенд | React | Адаптивный дизайн</p>
-          <h1 className="main-title">Мое портфолио</h1>
+          <p className="tagline">
+            Front-End Developer | React | TypeScript | CSS-in-JS
+          </p>
+          <h1 className="main-title">Анастасия Анисимова</h1>
           <p className="subtext">
-            Создаю понятные и стабильные пользовательские интерфейсы. Внимание к
-            деталям, адаптивность, масштабируемость.
+            Разрабатываю надёжные веб-интерфейсы с фокусом на масштабируемость,
+            производительность и соответствие современным стандартам. Более трёх
+            лет опыта в коммерческой разработке.
           </p>
         </div>
 

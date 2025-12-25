@@ -9,12 +9,13 @@
   border-radius: 0.625rem;
   box-shadow: 0 0.125rem 0.5rem #0000001a;
   box-sizing: border-box;
+  background-color: #f8f9f6; 
 }
 
 .footer-form input,
 .footer-form textarea {
   padding: 1.25rem;
-  border: 0.0625rem solid #ccc;
+  border: 0.0625rem #cdd5c3;
   font-size: 0.875rem;
   border-radius: 0.625rem;
   margin-block: 0.625rem;
@@ -26,12 +27,12 @@
 
 .footer-form input:focus,
 .footer-form textarea:focus {
-  border-color: #6b705c;
+  border-color: #a6b58a; 
   outline: none;
 }
 
 .footer-form button {
-  background-color: #7e8960;
+  background-color: #aab88c;
   color: white;
   border: none;
   padding: 0.75rem;
@@ -43,11 +44,11 @@
 }
 
 .footer-form button:hover {
-  background-color: #3f462a;
+  background-color: #8f9d77;
 }
 
 .success-msg {
-  color: #5a653a;
+  color: #97a67f;
   font-weight: 500;
   text-align: center;
 }

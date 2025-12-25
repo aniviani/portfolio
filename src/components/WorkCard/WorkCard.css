@@ -1,5 +1,5 @@
 .work-card {
-  width: 19.75rem;
+  width: 25rem;
   margin-top: 0.625rem;
   margin-bottom: 3.125rem;
   display: flex;
@@ -14,8 +14,8 @@
 }
 
 .work-image {
-  width: 19.3rem;
-  height: 19.7rem;
+  width: 50%;
+  height: auto;
 }
 
 .work-title {
@@ -25,11 +25,23 @@
   margin: 0;
 }
 
+.work-duration {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  font-weight: 400;
+  color: #4f5b2e;
+  margin: 0;
+}
+
 .work-description {
-  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
   color: #777;
   line-height: 1.4;
   margin: 0;
+}
+
+.work-description li {
+  margin-bottom: 0.3rem;
+  list-style-type: disc;
 }
 
 .work-card:hover {
@@ -41,6 +53,8 @@
 @media (max-width: 768px) {
   .work-card {
     width: 45%;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 2rem;
   }
 
@@ -52,12 +66,14 @@
 
 @media (max-width: 468px) {
   .work-card {
-    width: 100%;
+    width: 90%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 1.5rem;
   }
 
   .work-image {
-    max-width: 100%;
-    height: auto;
+    width: 50%;
   }
 }

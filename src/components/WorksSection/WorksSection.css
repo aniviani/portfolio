@@ -6,10 +6,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 1.5rem;
-  padding-right: 2rem;
-  padding-bottom: 1.5rem;
-  padding-left: 6rem;
+  padding: 1.5rem 2rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 .works-title {
   font-size: clamp(1.875rem, 1.5vw, 2rem);
@@ -37,7 +36,8 @@
 
   .works-wrapper {
     gap: 1.5rem;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
   }
 }
 

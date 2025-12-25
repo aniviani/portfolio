@@ -3,10 +3,11 @@
   width: 100%;
   margin: 0 auto;
   padding: 1.5rem clamp(1rem, 5vw, 4rem);
-  padding-left: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .logos {
@@ -17,8 +18,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.5rem;
+  gap: 5rem;
   flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 @media (max-width: 1024px) {

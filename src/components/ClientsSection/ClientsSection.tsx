@@ -2,45 +2,82 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import './ClientsSection.css';
 import ClientCard from '../ClientCard/ClientCard';
 
-const cardsData = Array.from({ length: 9 }, (_, i) => ({
-  title: `отзыв ${i + 1}`,
-  description: 'Gemma Nolen, Google',
-  rating: (i % 5) + 1,
-}));
+const cardsData = [
+  {
+    title: 'JavaScript / TypeScript',
+    description:
+      'Работаю со строгой типизацией, уверенно использую современные возможности языка.',
+    rating: 5,
+  },
+  {
+    title: 'React / Redux',
+    description:
+      'Проектирую интерфейсы, использую Redux для управления состоянием в сложных приложениях.',
+    rating: 4,
+  },
+  {
+    title: 'HTML / CSS / BEM / CSS-in-JS',
+    description:
+      'Пишу адаптивную и поддерживаемую вёрстку. Опыт с CSS-модулями и styled-components.',
+    rating: 5,
+  },
+  {
+    title: 'MySQL / PostgreSQL',
+    description:
+      'Работа с базами данных: структура, запросы, интеграция через API.',
+    rating: 4,
+  },
+  {
+    title: 'Git / DevOps (basic)',
+    description:
+      'Работа в ветках, настройка CI/CD, линтинг и проверка кода на этапе сборки.',
+    rating: 5,
+  },
+];
 
 const ClientsSection: React.FC = () => {
   const trackRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [cardWidth, setCardWidth] = useState(320);
-  const [cardsPerSlide, setCardsPerSlide] = useState(2);
+  const [cardWidth, setCardWidth] = useState(0);
+  const [gap, setGap] = useState(32);
+  const [visibleCards, setVisibleCards] = useState(2);
 
   const recalc = useCallback(() => {
-    if (!containerRef.current || !trackRef.current) return;
+    if (!trackRef.current || !containerRef.current) return;
 
-    const viewport = containerRef.current.clientWidth;
+    const cards =
+      trackRef.current.querySelectorAll<HTMLElement>('.client-card');
+    if (!cards.length) return;
 
-    const firstCard =
-      trackRef.current.querySelector<HTMLElement>('.client-card');
-    const width = firstCard ? firstCard.offsetWidth : 320;
+    const first = cards[0];
+    const cw = first.offsetWidth;
 
-    const perSlide = Math.max(1, Math.floor(viewport / width));
+    const style = window.getComputedStyle(trackRef.current);
+    let rawGap = style.columnGap || style.rowGap || style.gap || '0';
+    let g = parseFloat(rawGap);
 
-    setCardWidth(width);
-    setCardsPerSlide(perSlide);
+    if (Number.isNaN(g) || g === 0) {
+      const second = cards[1];
+      g = second ? second.offsetLeft - first.offsetLeft - cw : 0;
+    }
 
-    const max = Math.ceil(cardsData.length / perSlide) - 1;
-    setCurrentSlide((prev) => Math.min(prev, max));
+    const containerWidth = containerRef.current.offsetWidth;
+    const vis = Math.max(1, Math.floor(containerWidth / (cw + g)));
+
+    setCardWidth(cw);
+    setGap(g);
+    setVisibleCards(vis);
   }, []);
 
   const updateTransform = useCallback(
     (index: number) => {
       if (trackRef.current) {
-        const offset = index * cardWidth * cardsPerSlide;
+        const offset = currentSlide * (cardWidth + gap);
         trackRef.current.style.transform = `translateX(-${offset}px)`;
       }
     },
-    [cardWidth, cardsPerSlide],
+    [currentSlide, cardWidth, gap],
   );
 
   useEffect(
@@ -50,17 +87,21 @@ const ClientsSection: React.FC = () => {
 
   useEffect(() => {
     recalc();
-    window.addEventListener('resize', recalc);
-    return () => window.removeEventListener('resize', recalc);
+    const handleResize = () => {
+      recalc();
+      setCurrentSlide(0);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [recalc]);
 
-  const maxSlide = Math.ceil(cardsData.length / cardsPerSlide) - 1;
+  const maxSlide = Math.max(cardsData.length - visibleCards, 0);
 
   return (
-    <section className="clients-section">
-      <p className="clients-title">Отзывы клиентов</p>
+    <section id="skills" className="clients-section">
+      <p className="clients-title">Мои навыки</p>
 
-      <div className="carousel-wrapper">
+      <div className="carousel-wrapper" ref={containerRef}>
         <button
           className="carousel-button prev"
           onClick={() => setCurrentSlide((p) => Math.max(p - 1, 0))}
@@ -70,51 +111,14 @@ const ClientsSection: React.FC = () => {
         </button>
         <div className="carousel-container">
           <div className="carousel-track" ref={trackRef}>
-            <ClientCard
-              title="отзыв 1"
-              description="Gemma Nolen, Google"
-              rating={3}
-            />
-            <ClientCard
-              title="отзыв 2"
-              description="Gemma Nolen, Google"
-              rating={5}
-            />
-            <ClientCard
-              title="отзыв 3"
-              description="Gemma Nolen, Google"
-              rating={4}
-            />
-            <ClientCard
-              title="отзыв 4"
-              description="Gemma Nolen, Google"
-              rating={1}
-            />
-            <ClientCard
-              title="отзыв 5"
-              description="Gemma Nolen, Google"
-              rating={4}
-            />
-            <ClientCard
-              title="отзыв 6"
-              description="Gemma Nolen, Google"
-              rating={3}
-            />
-            <ClientCard
-              title="отзыв 7"
-              description="Gemma Nolen, Google"
-              rating={4}
-            />
-            <ClientCard
-              title="отзыв 8"
-              description="Gemma Nolen, Google"
-              rating={5}
-            />
-            <ClientCard
-              title="отзыв 9"
-              description="Gemma Nolen, Google"
-              rating={2}
-            />
+            {cardsData.map((card, index) => (
+              <ClientCard
+                key={index}
+                title={card.title}
+                description={card.description}
+                rating={card.rating}
+              />
+            ))}
           </div>
         </div>
         <button
